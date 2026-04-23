@@ -1,0 +1,81 @@
+{
+  "name": "flujo_n8n_clima",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "Clima",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "71ef9acc-13fc-4523-ae6c-c90f1aa71b49",
+      "name": "Webhook",
+      "webhookId": "2226ffc2-24bb-4ab8-968b-bd7198800027"
+    },
+    {
+      "parameters": {
+        "url": "https://api.openweathermap.org/data/2.5/weather",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "q",
+              "value": "Cartagena,co"
+            },
+            {
+              "name": "units",
+              "value": "metric"
+            },
+            {
+              "name": "lang",
+              "value": "es"
+            },
+            {
+              "name": "appid",
+              "value": "85113b242f5e264e5d9695f3d71066da"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        208,
+        0
+      ],
+      "id": "993ae469-b609-4eb6-bdb4-fdd9966912c0",
+      "name": "HTTP Request"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "aa2adf90-e31a-4004-ad6a-57d4140e28e2",
+  "meta": {
+    "instanceId": "7b3b5062cc5fb74bdc28170ec6ea975115c8553effb033f0fc1bb17f98e40d80"
+  },
+  "id": "CiXi4dm81tt8fbE8",
+  "tags": []
+}
